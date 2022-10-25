@@ -61,9 +61,15 @@
 
 		public function delete($id)
 		{
+			if (is_array($id)) {
+				$where = $this->conditionConvert($id);
+			} else {
+				$where = "id = '{$id}'";
+			}	
+
 			$data = [
 				$this->table,
-				"id = '{$id}'"
+				$where
 			];
 
 			return $this->dbHelper->delete(...$data);
@@ -98,10 +104,16 @@
 
 		public function get($id)
 		{
+			if (is_array($id)) {
+				$where = $this->conditionConvert($id);
+			} else {
+				$where = "id = '{$id}'";
+			}
+
 			$data = [
 				$this->table ,
 				'*',
-				"id = '{$id}'"
+				$where
 			];
 
 			return $this->dbHelper->single(...$data);
@@ -292,10 +304,7 @@
 	{
 		$WHERE = '';
 		$counter = 0;
-
-		$errors = [];
-
-
+		
 		if( !is_array($params) )
 			return $params;
 		/*

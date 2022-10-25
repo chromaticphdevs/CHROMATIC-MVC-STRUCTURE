@@ -20,7 +20,7 @@ it has a low overhead this mvc framework is super light-weight.
     then add 127.0.0.1	dev.chromaticmvc
 5. got you your xampp/foldername/app/config open the setup_loader.php and setup.php
     on setup.php change the mode to local, on setupload_loader.php put dev.chromaticmvc to URL constant and add your database info
-    if you have any.
+    if you have any.git
 5. Reset your xampp apache then open your browser and dev.chromaticmvc/
 6. Enjoy development.
 
